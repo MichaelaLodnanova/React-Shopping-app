@@ -1,54 +1,47 @@
-# Store
+# Online Store Checkout Workflow Prototype
 
-A prototype a checkout workflow of an online store. The goal is to make the checkout process simpler for the user. 
-## Specs
+This is a prototype of an online store checkout workflow designed to simplify the process for users. The workflow consists of five steps based on the diagram in GitLab issues:
 
-- The form will be composed of 5 steps according to the diagram in gitlab issues:
+Step 1: Order Summary
 
-- Step 1: Order Summary
-  - In this step the user will be able to review the items in their cart and the total price.
-- Step 2 (optional): Select recipient
-  - If the order is a gift, the user will be able to select the recipient from a list of users.
-  - The list has to be searchable
-- Step 3: Select payment method
-  - The user will be able to select the payment method from a list of available payment methods and fill in the necessary information.
-- Step 4: Fill in billing info
-  - The user will be able to fill in their billing information.
-- Step 5: Confirmation
+    At this stage, the user can review the items in their cart along with the total cost.
 
-  - The user will receive a confirmation message (a nice animation is appreciated).
+Step 2 (Optional): Select Recipient
 
-- The user will be able to go back and forth between steps (at least a back button should be present in each step, for a better UX you would want to use **breadcrumbs** or a **stepper**, you are however not limited to these, as long as they make sense from a users' perspective).
-  - However, when the user choses to gift his cart. Going back must include the *Select recipient* step. Likewise, the step must be skipped when going back if the user is not gifting the cart.
+    If the user is buying a gift, they can choose the recipient from a searchable list of users.
 
-- Use proper validation for each field, and make sure the user can't submit the form if there are any errors on the current step.
+Step 3: Select Payment Method
 
-- Each step of the form is required to contain the following:
+    The user can choose a payment method from a list of available options and enter the necessary information.
 
-  - Step 1: Order Summary
-    - The user's cart
-    - The total price
-    - A button to buy the items for yourself
-    - A button to buy the items as a gift
-  - Step 2: Select recipient
-    - A search bar to filter the list of users
-    - A list of users
-  - Step 3: Select payment method
-    - A list of payment methods (At least Credit Card and 2 others)
-    - A form to fill in the card information, if the user chooses to pay with a credit card (Card number, Holder's name, expiration date, CVV)
-  - Step 4: Fill in billing info
+Step 4: Fill in Billing Information
 
-    - A form to fill in the user's billing information, the fields are:
+    The user can enter their billing information, including name, email, phone number (optional), address, city, state/province, country, and zip code.
 
-      - Name and surname (required)
-      - Email (required)
-      - Phone number (optional)
+Step 5: Confirmation
 
-      - Address (required)
-      - City (required)
-      - State/province (required)
-      - Country (required)
-      - Zip code (required)
+    After completing the checkout process, the user will receive a confirmation message with a nice animation.
 
-  - Step 5: Confirmation
-    - A confirmation message
+Users can move back and forth between steps using a back button, breadcrumbs, or a stepper. If the user chooses to gift their cart, going back will include the "Select Recipient" step, while skipping it when going back if the user is not gifting the cart.
+
+Each step of the form includes specific features and fields to ensure a smooth checkout process, including proper validation of each field to prevent submission of incomplete or erroneous information. For instance:
+
+    Step 1: Order Summary
+        The user's cart
+        The total price
+        A button to buy the items for themselves
+        A button to buy the items as a gift
+
+    Step 2: Select Recipient
+        A search bar to filter the list of users
+        A list of users
+
+    Step 3: Select Payment Method
+        A list of payment methods, including at least Credit Card and two others
+        A form to fill in credit card information, including card number, holder's name, expiration date, and CVV.
+
+    Step 4: Fill in Billing Information
+        A form to fill in the user's billing information, including name, email, phone number (optional), address, city, state/province, country, and zip code.
+
+    Step 5: Confirmation
+        A confirmation message
