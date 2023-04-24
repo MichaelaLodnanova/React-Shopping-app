@@ -12,10 +12,10 @@ export default function PaymentMethod() {
             <Heading size="sm" padding="1.5">
                 Select payment method
             </Heading>
-            <Card size="lg" w="100%">
+            <Card size="lg" w="100%" bgGradient='linear(gray.700 3%, gray.500 25%, white 100%)'>
                 <CardHeader>
                 </CardHeader>
-                <CardBody maxHeight="300px">
+                <CardBody minHeight="300px">
                     <Accordion>
                         <AccordionItem>
                             <AccordionButton>

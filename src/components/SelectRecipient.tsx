@@ -37,7 +37,7 @@ export default function SelectRecipient(props: SelectRecipientProps) {
             <Heading size="sm" padding="1.5">
                 Select recipient
             </Heading>
-            <Card size="lg" w="100%">
+            <Card size="lg" w="100%" bgGradient='linear(gray.700 3%, gray.500 25%, white 100%)'>
                 <CardHeader>
                     <InputGroup color="inherit">
                         <InputLeftElement pointerEvents="none"><FaSearch /></InputLeftElement>

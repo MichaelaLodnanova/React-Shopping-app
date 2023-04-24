@@ -26,7 +26,7 @@ export default function OrderAccepted() {
             <Heading size="sm" padding="1.5">
                 Done
             </Heading>
-            <Card size="lg" w="100%" >
+            <Card size="lg" w="100%" bgGradient='linear(gray.700 3%, gray.500 25%, white 100%)'>
                 <CardHeader>
                     <Heading size='lg' textAlign='center'>Thank you for your purchase</Heading>
                 </CardHeader>

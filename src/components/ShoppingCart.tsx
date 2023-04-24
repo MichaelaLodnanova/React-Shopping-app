@@ -44,10 +44,10 @@ export default function ShoppingCart({ cart, heading }: ShoppingCartProps) {
                 <Heading size="sm" padding="1.5">
                     {heading}
                 </Heading>
-                <Card size="lg" w="100%">
+                <Card size="lg" w="100%" bgGradient='linear(gray.700 3%, gray.500 25%, white 100%)'>
                     <CardHeader />
                     <CardBody maxHeight="300px" overflowY="scroll" paddingX='16' paddingTop="0">
-                        <VStack divider={<StackDivider borderColor="gray.200" />} align='stretch'>
+                        <VStack divider={<StackDivider borderColor="gray.100" />} align='stretch'>
                             {cartItems.map((x) => (
                                 <Item
                                     key={null}
@@ -57,27 +57,30 @@ export default function ShoppingCart({ cart, heading }: ShoppingCartProps) {
                             ))}
                         </VStack>
                     </CardBody>
-                    <Divider borderColor='gray.200' />
+                    <Divider borderColor='gray.100' />
                     <Spacer />
                     <Flex justifyContent='flex-end'>
-                        <Text fontSize="m" fontStyle="italic" color="gray.500" padding='4' paddingRight='-1' textDecoration='line-through'>
+                        <Text fontSize="m" fontStyle="italic" color="white" padding='4' paddingRight='-1' textDecoration='line-through'>
                             ${getTotalPrice().toFixed(2)}
                         </Text>
-                        <Text fontSize="large" fontStyle="italic" color="white" padding='4' paddingRight='10'>
+                        <Text fontSize="large" fontStyle="italic" padding='4' paddingRight='10'>
                             ${getSalePrice().toFixed(2)}
                         </Text>
                     </Flex>
                     <CardFooter justifyContent="space-between" paddingTop='-1'>
                         <ButtonGroup variant="outline" spacing="6">
-                            <Button colorScheme="black" onClick={() => navigate('/')}>Back to store</Button>
-                            <Button colorScheme="black" onClick={() => navigate('/payment-method')}>Purchase</Button>
+                            <Button _hover={{ bgColor: 'gray.100' }} colorScheme="black" onClick={() => navigate('/')}>Back to store</Button>
+                            <Button _hover={{ bgColor: 'gray.100' }} colorScheme="black" onClick={() => navigate('/payment-method')}>Purchase</Button>
                         </ButtonGroup>
                         <ButtonGroup variant="outline">
-                            <Button colorScheme="black" onClick={() => navigate('/gift')}>Gift to</Button>
+                            <Button bgGradient='linear(to-r, gray.100, gray.500)'
+                                _hover={{
+                                    bgGradient: 'linear(to-r, gray.100, gray.700)',
+                                }} colorScheme="black" onClick={() => navigate('/gift')}>Gift to</Button>
                         </ButtonGroup>
                     </CardFooter>
                 </Card>
-            </Container>
-        </animated.div>
+            </Container >
+        </animated.div >
     );
 }

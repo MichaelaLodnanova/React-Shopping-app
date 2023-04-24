@@ -10,7 +10,7 @@ export default function Billing() {
             <Heading size="sm" padding="1.5">
                 Fill in billing info
             </Heading>
-            <Card size="lg" w="100%">
+            <Card size="lg" w="100%" bgGradient='linear(gray.700 3%, gray.500 25%, white 100%)'>
                 <CardHeader paddingX='14' paddingBottom='0'>
                     <SimpleGrid>
                         <GridItem paddingY='2'>

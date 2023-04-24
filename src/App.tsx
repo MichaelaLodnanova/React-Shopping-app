@@ -11,12 +11,32 @@ import Breadcrumbs from 'components/Breadcrumbs';
 import PaymentMethod from 'components/PaymentMethod';
 import Billing from 'components/Billing';
 import OrderAccepted from 'components/OrderAccepted';
-
+import "styles.css";
 export type AppProps = {};
 
 const theme = extendTheme({
-  config: { initialColorMode: 'dark' },
-
+  config: { initialColorMode: 'light' },
+  fonts: {
+    body: "Raleway, sans-serif",
+    heading: "Raleway, sans-serif",
+  },
+  fontWeights: {
+    normal: 200,
+    medium: 300,
+    bold: 500,
+  },
+  styles: {
+    global: () => ({
+      body: {
+        bgGradient:
+          [
+            'linear(to-tr, teal.300, yellow.400)',
+            'linear(to-t, blue.200, teal.500)',
+            'linear(to-b, orange.100, purple.300)',
+          ],
+      },
+    }),
+  },
 })
 
 export const App: FC<AppProps> = () => {
