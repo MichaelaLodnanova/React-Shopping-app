@@ -1,25 +1,20 @@
 import React from 'react'
-import { Breadcrumb, BreadcrumbLink, BreadcrumbItem } from '@chakra-ui/react'
+import { Breadcrumb, BreadcrumbLink, BreadcrumbItem, Box } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import type { BreadcrumbsProps } from 'types/BreadCrumbs'
 
-export default function Breadcrums() {
+
+
+export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     return (
-        <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
-            <BreadcrumbItem>
-                <BreadcrumbLink href='#'>Cart</BreadcrumbLink>
-            </BreadcrumbItem>
-
-            <BreadcrumbItem>
-                <BreadcrumbLink href='#'>Gift to</BreadcrumbLink>
-            </BreadcrumbItem>
-
-            <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink href='#'>Payment</BreadcrumbLink>
-            </BreadcrumbItem>
-
-            <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink href='#'>Billing</BreadcrumbLink>
-            </BreadcrumbItem>
-        </Breadcrumb>
+        <Box margin={"4"}>
+            <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+                {items != null && items.map(item =>
+                    < BreadcrumbItem key={item.link}>
+                        <BreadcrumbLink href={item.link}>{item.label}</BreadcrumbLink>
+                    </BreadcrumbItem>
+                )}
+            </Breadcrumb>
+        </Box >
     )
 }

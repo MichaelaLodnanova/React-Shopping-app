@@ -11,6 +11,7 @@ import {
     InputGroup,
     InputLeftElement,
     Input,
+    Box
 } from '@chakra-ui/react';
 import { FaSearch } from 'react-icons/fa';
 import type { GiftRecipient } from 'types/GiftRecipient';
@@ -33,26 +34,28 @@ export default function SelectRecipient(props: SelectRecipientProps) {
     ), [recipients, searchValue]);
 
     return (
-        <Container maxW="2xl">
-            <Heading size="sm" padding="1.5">
-                Select recipient
-            </Heading>
-            <Card size="lg" w="100%" bgGradient='linear(gray.700 3%, gray.500 25%, white 100%)'>
-                <CardHeader>
-                    <InputGroup color="inherit">
-                        <InputLeftElement pointerEvents="none"><FaSearch /></InputLeftElement>
-                        <Input type="text" placeholder="Search" value={searchValue} onChange={handleSearchInputChange} />
-                    </InputGroup>
-                </CardHeader>
-                <CardBody maxHeight="300px" overflowY="scroll" paddingX="16" paddingTop="0">
-                    <VStack divider={<StackDivider borderColor="gray.200" />} align="stretch">
-                        {filteredRecipients.map((x) => (
-                            <Recipient key={x.id} recipient={x} />
-                        ))}
-                    </VStack>
-                </CardBody>
-                <CardFooter></CardFooter>
-            </Card>
-        </Container>
+        <Box>
+            <Container maxW="2xl">
+                <Heading size="sm" padding="1.5">
+                    Select recipient
+                </Heading>
+                <Card size="lg" w="100%" bgGradient='linear(gray.700 3%, gray.500 25%, white 100%)'>
+                    <CardHeader>
+                        <InputGroup color="inherit">
+                            <InputLeftElement pointerEvents="none"><FaSearch /></InputLeftElement>
+                            <Input type="text" placeholder="Search" value={searchValue} onChange={handleSearchInputChange} />
+                        </InputGroup>
+                    </CardHeader>
+                    <CardBody maxHeight="300px" overflowY="scroll" paddingX="16" paddingTop="0">
+                        <VStack divider={<StackDivider borderColor="gray.200" />} align="stretch">
+                            {filteredRecipients.map((x) => (
+                                <Recipient key={x.id} recipient={x} />
+                            ))}
+                        </VStack>
+                    </CardBody>
+                    <CardFooter></CardFooter>
+                </Card>
+            </Container>
+        </Box>
     );
 }

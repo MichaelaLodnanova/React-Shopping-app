@@ -20,7 +20,7 @@ export default function Item({ item, onRemove }: ItemProps) {
             <Box p='4'>
                 {item.salePrice ? (
                     <Flex direction='row'>
-                        <Heading size='sm' color='gray.100' textDecoration='line-through' mr='2'>
+                        <Heading size='sm' color='gray.400' textDecoration='line-through' mr='2'>
                             ${item.price}
                         </Heading>
                         <Heading size='sm'>${item.salePrice}</Heading>

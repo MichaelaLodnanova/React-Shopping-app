@@ -39,12 +39,11 @@ export default function ShoppingCart({ cart, heading }: ShoppingCartProps) {
 
     return (
         <animated.div style={slideInAnimation}>
-
             <Container maxW="2xl">
                 <Heading size="sm" padding="1.5">
                     {heading}
                 </Heading>
-                <Card size="lg" w="100%" bgGradient='linear(gray.700 3%, gray.500 25%, white 100%)'>
+                <Card size="lg" w="100%" bg='orange.50'>
                     <CardHeader />
                     <CardBody maxHeight="300px" overflowY="scroll" paddingX='16' paddingTop="0">
                         <VStack divider={<StackDivider borderColor="gray.100" />} align='stretch'>
@@ -60,7 +59,7 @@ export default function ShoppingCart({ cart, heading }: ShoppingCartProps) {
                     <Divider borderColor='gray.100' />
                     <Spacer />
                     <Flex justifyContent='flex-end'>
-                        <Text fontSize="m" fontStyle="italic" color="white" padding='4' paddingRight='-1' textDecoration='line-through'>
+                        <Text fontSize="m" fontStyle="italic" color="gray.400" padding='4' paddingRight='-1' textDecoration='line-through'>
                             ${getTotalPrice().toFixed(2)}
                         </Text>
                         <Text fontSize="large" fontStyle="italic" padding='4' paddingRight='10'>
@@ -73,9 +72,9 @@ export default function ShoppingCart({ cart, heading }: ShoppingCartProps) {
                             <Button _hover={{ bgColor: 'gray.100' }} colorScheme="black" onClick={() => navigate('/payment-method')}>Purchase</Button>
                         </ButtonGroup>
                         <ButtonGroup variant="outline">
-                            <Button bgGradient='linear(to-r, gray.100, gray.500)'
+                            <Button bgGradient='linear(to-r, orange.50, red.100)'
                                 _hover={{
-                                    bgGradient: 'linear(to-r, gray.100, gray.700)',
+                                    bgGradient: 'linear(to-r, orange.50, red.200)',
                                 }} colorScheme="black" onClick={() => navigate('/gift')}>Gift to</Button>
                         </ButtonGroup>
                     </CardFooter>
@@ -84,3 +83,4 @@ export default function ShoppingCart({ cart, heading }: ShoppingCartProps) {
         </animated.div >
     );
 }
+
