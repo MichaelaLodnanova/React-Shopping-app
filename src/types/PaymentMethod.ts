@@ -11,6 +11,9 @@ export type GooglePayPaymentMethod = {
 
 export type ApplePayPaymentMethod = {
   type: 'Apple Pay';
-}
+};
 
-export type PaymentMethod = CreditCardPaymentMethod | GooglePayPaymentMethod | ApplePayPaymentMethod;
+export type PaymentMethod =
+  | CreditCardPaymentMethod
+  | GooglePayPaymentMethod
+  | ApplePayPaymentMethod;
