@@ -1,18 +1,16 @@
 import type { FC } from 'react';
-import { ChakraProvider, extendTheme, Box, Center, Flex, HStack, VStack, Divider } from '@chakra-ui/react'
-import ShoppingCart from 'components/ShoppingCart';
+import { ChakraProvider, extendTheme, Box, Center, VStack } from '@chakra-ui/react'
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-// Use this import to load the cart content
-import cart from 'assets/cart.json';
-// Use this import to load the list of users who can receive a gift from you
+import "styles.css";
 import userlist from 'assets/gift_recipients.json';
+import cart from 'assets/cart.json';
 import SelectRecipient from 'components/SelectRecipient';
 import PaymentMethod from 'components/PaymentMethod';
 import Billing from 'components/Billing';
 import OrderAccepted from 'components/OrderAccepted';
-import "styles.css";
+import ShoppingCart from 'components/ShoppingCart';
 import Breadcrumbs from 'components/Breadcrumbs';
-import type { BreadcrumbsProps } from 'types/BreadCrumbs';
+
 export type AppProps = {};
 
 const theme = extendTheme({
@@ -32,19 +30,22 @@ const theme = extendTheme({
         bgGradient: 'linear(to-b, purple.300, #E6FFFA )'
       },
     }),
-  },
+  }
 })
 
 export const App: FC<AppProps> = () => {
+
   return (
     <ChakraProvider theme={theme}>
-      <VStack p='4' color='white' width='100dvw' height='100dvh'>
-        <Box width="100%">
-          <Breadcrumbs items={crumbs.items}></Breadcrumbs>
-          <Divider></Divider>
-        </Box>
-        <Center flex={0.9}>
-          <BrowserRouter>
+      <BrowserRouter>
+        <VStack p='4' color='white' width='100dvw' minH='100dvh'>
+          <Box width="100%">
+            <Breadcrumbs
+              items={items}
+              disabledItems={disabledItems}
+            />
+          </Box>
+          <Center flex={0.9}>
             <Routes>
               <Route path='/'></Route>
               <Route path='/cart' element={
@@ -64,30 +65,34 @@ export const App: FC<AppProps> = () => {
                 <OrderAccepted></OrderAccepted>
               } />
             </Routes>
-          </BrowserRouter>
-        </Center>
-      </VStack>
+          </Center>
+        </VStack>
+      </BrowserRouter>
     </ChakraProvider >
   );
 };
 
-const crumbs: BreadcrumbsProps = {
-  items: [
-    {
-      label: "cart",
-      link: "/cart"
-    },
-    {
-      label: "gift to",
-      link: "/gift"
-    },
-    {
-      label: "payment",
-      link: "/payment-method"
-    },
-    {
-      label: "billing",
-      link: "/billing"
-    }
-  ]
-};
+
+const items = [
+  {
+    label: "cart",
+    link: "/cart"
+  },
+  {
+    label: "gift to",
+    link: "/gift"
+  },
+  {
+    label: "payment",
+    link: "/payment-method"
+  },
+  {
+    label: "billing",
+    link: "/billing"
+  }
+]
+
+const disabledItems = [
+  "/cart",
+  "/done"
+];

@@ -35,11 +35,11 @@ export default function SelectRecipient(props: SelectRecipientProps) {
 
     return (
         <Box>
-            <Container maxW="2xl">
+            <Container minW="2xl">
                 <Heading size="sm" padding="1.5">
                     Select recipient
                 </Heading>
-                <Card size="lg" w="100%" bgGradient='linear(gray.700 3%, gray.500 25%, white 100%)'>
+                <Card size="lg" w="100%" backgroundColor={"orange.50"} minH="md">
                     <CardHeader>
                         <InputGroup color="inherit">
                             <InputLeftElement pointerEvents="none"><FaSearch /></InputLeftElement>

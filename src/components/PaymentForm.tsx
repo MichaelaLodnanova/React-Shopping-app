@@ -1,19 +1,10 @@
-import React from 'react'
 import { SimpleGrid, GridItem, FormControl, FormLabel, Input, Flex, Button, FormErrorMessage } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { paymentValidationSchema } from 'zod_schemas/paymentValidationSchema';
 import { z } from "zod";
-
-
-const validationSchema = z.object({
-    cardNumber: z.string().length(16, 'Card number must be 16 digits'),
-    expirationDate: z.string().regex(/\d\d\/\d\sd/, "Expiration date must have the follwoing format: XX/XX"),
-    cvv: z.string().length(3, 'CVV must be 3 digits'),
-    holderName: z.string().min(3, 'Holder name must be at least 3 characters'),
-})
-
-type ValidationSchema = z.infer<typeof validationSchema>;
+type ValidationSchema = z.infer<typeof paymentValidationSchema>;
 
 
 export default function PaymentForm() {
@@ -23,7 +14,7 @@ export default function PaymentForm() {
         handleSubmit,
         formState: { errors },
     } = useForm<ValidationSchema>({
-        resolver: zodResolver(validationSchema),
+        resolver: zodResolver(paymentValidationSchema),
     });
 
     const onSubmit = (data: ValidationSchema) => {

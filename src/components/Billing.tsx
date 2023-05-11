@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { billingValidationSchema } from 'zod_schemas/billingValidationSchema';
 import { z } from "zod";
+
+import "styles.css"
 type ValidationSchema = z.infer<typeof billingValidationSchema>
 
 export default function Billing() {
@@ -28,7 +30,7 @@ export default function Billing() {
             </Heading>
 
             <form onSubmit={handleSubmit(onSumbit)}>
-                <Card size="lg" w="100%" bgGradient='linear(gray.400 3%, gray.200 25%, white 100%)'>
+                <Card size="lg" w="100%" bg='orange.50' marginBottom="4">
                     <CardHeader paddingX='14' paddingBottom='0'>
                         <SimpleGrid>
                             <GridItem paddingY='2'>
@@ -68,10 +70,10 @@ export default function Billing() {
                             <Heading size="sm" padding="1.5">
                                 Billing address:
                             </Heading>
-                            <Card size="lg" w="100%" border="1px solid grey" bg='gray.700'>
+                            <Card size="lg" w="100%" border="1px solid grey" bg='blackAlpha.700'>
                                 <CardHeader paddingBottom="0">
                                     <FormControl padding="2" isInvalid={errors.address != undefined ? true : undefined}>
-                                        <Input type="text" color='white' placeholder="Address"{...register("address")}></Input>
+                                        <Input type="text" color='white' placeholder="Address"{...register("address")} _placeholder={{ color: 'beige' }} ></Input>
                                         <FormErrorMessage fontSize="sm" color="red">{errors.address?.message}</FormErrorMessage>
                                     </FormControl>
                                 </CardHeader>
@@ -80,13 +82,13 @@ export default function Billing() {
                                         <GridItem colSpan={1}>
                                             <Flex display="flex" padding="2">
                                                 <FormControl textAlign="center" isInvalid={errors.city != undefined ? true : undefined}>
-                                                    <Input type="text" color='white' placeholder="City"{...register("city")} />
+                                                    <Input type="text" color='white' placeholder="City"{...register("city")} _placeholder={{ color: 'beige' }} />
                                                     <FormErrorMessage fontSize="sm" color="red">{errors.city?.message}</FormErrorMessage>
                                                 </FormControl>
                                             </Flex>
                                             <Flex display="flex" padding="2">
                                                 <FormControl textAlign="center">
-                                                    <Select placeholder="Select country" color="grey">
+                                                    <Select placeholder="Select country" color="beige">
                                                         <option>Czech republic</option>
                                                         <option>Slovakia</option>
                                                     </Select>
@@ -96,13 +98,13 @@ export default function Billing() {
                                         <GridItem colSpan={1}>
                                             <Flex display="flex" padding="2">
                                                 <FormControl textAlign="center" isInvalid={errors.state != undefined ? true : undefined}>
-                                                    <Input color='white' placeholder="State/Province"{...register("state")}></Input>
+                                                    <Input color='white' placeholder="State/Province"{...register("state")} _placeholder={{ color: 'beige' }} ></Input>
                                                     <FormErrorMessage fontSize="sm" color="red">{errors.state?.message}</FormErrorMessage>
                                                 </FormControl>
                                             </Flex>
                                             <Flex display="flex" padding="2">
                                                 <FormControl textAlign="center" isInvalid={errors.zip != undefined ? true : undefined}>
-                                                    <Input color='white' placeholder="Zip code"{...register("zip")}></Input>
+                                                    <Input color='white' placeholder="Zip code"{...register("zip")} _placeholder={{ color: 'beige' }} ></Input>
                                                     <FormErrorMessage fontSize="sm" color="red">{errors.zip?.message}</FormErrorMessage>
                                                 </FormControl>
                                             </Flex>

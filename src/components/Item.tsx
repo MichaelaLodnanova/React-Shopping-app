@@ -15,7 +15,7 @@ export default function Item({ item, onRemove }: ItemProps) {
     return (
         <HStack>
             <Image src={item.thumbnailUri} alt='Thumbnail' borderRadius='2xl' p='0.5rem' w="16" />
-            <Heading size='sm'>{item.name}</Heading>
+            <Heading size='md'>{item.name}</Heading>
             <Spacer />
             <Box p='4'>
                 {item.salePrice ? (

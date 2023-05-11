@@ -3,5 +3,6 @@ type BreadCrumbItemProp = {
     link: string,
 }
 export type BreadcrumbsProps = {
-    items: BreadCrumbItemProp[]
+    items: BreadCrumbItemProp[],
+    disabledItems: string[]
 }
